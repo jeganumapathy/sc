@@ -1,25 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    >
-    <RelativeLayout
-        android:orientation="vertical"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/videoview"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="fill_parent" />
+
+
+    <Button
+        android:id="@+id/mybutton"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="REC"
+        android:textSize="12dp" />
+
+    <RelativeLayout
+        android:id="@+id/data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:layout_alignParentBottom="true"
         >
-        <FrameLayout
-            android:id="@+id/videoview"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"/>
-        <Button
-            android:id="@+id/mybutton"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            android:text="REC"
-            android:textSize="12dp"/>
+
+        <include
+            android:id="@+id/player_a_layout"
+            layout="@layout/layout_win_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></include>
+
+        <include
+            android:id="@+id/player_b_layout"
+            layout="@layout/layout_win_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/player_a_layout"></include>
     </RelativeLayout>
-</LinearLayout>
+
+</RelativeLayout>

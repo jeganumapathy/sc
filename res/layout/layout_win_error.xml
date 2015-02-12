@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    tools:context="com.akg.scoreboard.MainActivity">
+
+    <Button
+        android:id="@+id/forced_error"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/forced_error"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/unforced_error"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:text="@string/unforced_error"
+        android:textSize="12sp" />
+
+
+    <Button
+        android:id="@+id/winner"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:text="@string/winner"
+        android:textSize="12sp" />
+
+</RelativeLayout>
