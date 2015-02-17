@@ -26,19 +26,11 @@
         android:layout_marginBottom="60dp"
         android:layout_alignParentBottom="true"
         >
-
         <include
             android:id="@+id/player_a_layout"
             layout="@layout/layout_win_error"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"></include>
-
-        <include
-            android:id="@+id/player_b_layout"
-            layout="@layout/layout_win_error"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/player_a_layout"></include>
     </RelativeLayout>
 
 </RelativeLayout>

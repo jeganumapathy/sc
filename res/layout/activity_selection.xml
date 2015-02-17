@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context="com.akg.scoreboard.MainActivity">
+    tools:context="com.akg.scoreboard.MainActivity" >
 
     <ImageView
         android:id="@+id/header_bg"
@@ -28,23 +28,23 @@
         android:layout_below="@id/header_bg"
         android:layout_centerVertical="true"
         android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin">
+        android:paddingRight="@dimen/activity_horizontal_margin" >
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content" >
 
             <LinearLayout
                 android:id="@+id/player_a_layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal" >
 
                 <LinearLayout
                     android:id="@+id/player_a_name_layout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical" >
 
                     <TextView
                         android:id="@+id/player_a_label"
@@ -61,46 +61,13 @@
                         android:layout_marginTop="10dp"
                         android:text="@string/player_b"
                         android:textSize="@dimen/default_text_lable_size" />
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Club"
-                        android:textSize="@dimen/default_text_lable_size" />
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Handedness"
-                        android:textSize="@dimen/default_text_lable_size" />
-
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Style"
-                        android:textSize="@dimen/default_text_lable_size" />
-
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Grip"
-                        android:textSize="@dimen/default_text_lable_size" />
-
-
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/player_a_edit_layout"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical" >
 
                     <EditText
                         android:id="@+id/player_a_edit"
@@ -118,18 +85,100 @@
                 </LinearLayout>
             </LinearLayout>
 
+            <RelativeLayout
+                android:id="@+id/optional_a_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/player_a_layout" >
+
+                <RadioGroup
+                    android:id="@+id/a_handeness"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/radio_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Right"  android:onClick="onRadioButtonClicked"
+                        android:textColor="@color/dark_orange" />
+
+                    <RadioButton
+                        android:id="@+id/radio_left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Left "  android:onClick="onRadioButtonClicked"
+                        android:textColor="@color/dark_orange" />
+                </RadioGroup>
+
+                <RadioGroup
+                    android:id="@+id/a_style"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/a_handeness"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/radio_offense"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="Offensive "  android:onClick="onRadioButtonClicked"
+                        android:textColor="@color/dark_orange" />
+
+                    <RadioButton
+                        android:id="@+id/radio_defense"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.73"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="Defensive "  android:onClick="onRadioButtonClicked"
+                        android:textColor="@color/dark_orange" />
+                </RadioGroup>
+
+                <RadioGroup
+                    android:id="@+id/a_grip"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/a_style"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/radio_shake"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="shake hand"  android:onClick="onRadioButtonClicked"
+                        android:textColor="@color/dark_orange" />
+
+                    <RadioButton
+                        android:id="@+id/radio_penhold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.37"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="pen hold"  android:onClick="onRadioButtonClicked"
+                        android:textColor="@color/dark_orange" />
+                </RadioGroup>
+            </RelativeLayout>
+
             <LinearLayout
                 android:id="@+id/player_x_layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/player_a_layout"
-                android:orientation="horizontal">
+                android:layout_below="@id/optional_a_layout"
+                android:orientation="horizontal" >
 
                 <LinearLayout
                     android:id="@+id/player_x_name_layout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical" >
 
                     <TextView
                         android:id="@+id/player_x_label"
@@ -146,36 +195,6 @@
                         android:layout_marginTop="10dp"
                         android:text="@string/player_y"
                         android:textSize="@dimen/default_text_lable_size" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Club"
-                        android:textSize="@dimen/default_text_lable_size" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Handedness"
-                        android:textSize="@dimen/default_text_lable_size" />
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Style"
-                        android:textSize="@dimen/default_text_lable_size" />
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Grip"
-                        android:textSize="@dimen/default_text_lable_size" />
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -183,7 +202,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical" >
 
                     <EditText
                         android:id="@+id/player_x_edit"
@@ -200,6 +219,88 @@
                         android:textColor="@android:color/black" />
                 </LinearLayout>
             </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/optional_x_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/player_x_layout" >
+
+                <RadioGroup
+                    android:id="@+id/x_handeness"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" 
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/radio_right_x"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Right"  android:onClick="onRadioButtonClicked"
+                        android:textColor="@color/dark_orange" />
+
+                    <RadioButton
+                        android:id="@+id/radio_left_x"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Left "  android:onClick="onRadioButtonClicked"
+                        android:textColor="@color/dark_orange" />
+                </RadioGroup>
+
+                <RadioGroup
+                    android:id="@+id/x_style"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/x_handeness"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/radio_offense_x"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"  android:onClick="onRadioButtonClicked"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="Offensive "
+                        android:textColor="@color/dark_orange" />
+
+                    <RadioButton
+                        android:id="@+id/radio_defense_x"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.73"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="Defensive "  android:onClick="onRadioButtonClicked"
+                        android:textColor="@color/dark_orange" />
+                </RadioGroup>
+
+                <RadioGroup
+                    android:id="@+id/x_grip"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/x_style"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/radio_shake_x"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="shake hand"
+                        android:textColor="@color/dark_orange" />
+
+                    <RadioButton
+                        android:id="@+id/radio_penhold_x"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.37"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="pen hold"
+                        android:textColor="@color/dark_orange" />
+                </RadioGroup>
+            </RelativeLayout>
 
             <Button
                 android:id="@+id/three_set"

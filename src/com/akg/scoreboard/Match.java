@@ -10,7 +10,43 @@ public class Match implements Serializable {
 	private String playerX;
 	private String playerY;
 	private int set;
-
+	
+	private Player a;
+	private Player b;
+	private Player x;
+	private Player y;
+	
+	public Match() {
+		this.a = new  Player();
+		this.b = new  Player();
+		this.x = new  Player();
+		this.y = new  Player();
+	}
+	
+	public Player getA() {
+		return a;
+	}
+	public void setA(Player a) {
+		this.a = a;
+	}
+	public Player getB() {
+		return b;
+	}
+	public void setB(Player b) {
+		this.b = b;
+	}
+	public Player getX() {
+		return x;
+	}
+	public void setX(Player x) {
+		this.x = x;
+	}
+	public Player getY() {
+		return y;
+	}
+	public void setY(Player y) {
+		this.y = y;
+	}
 	public int getEvent() {
 		return event;
 	}
@@ -24,6 +60,7 @@ public class Match implements Serializable {
 		boolean val = checkPlayerName(playerA);
 		if (val)
 			this.playerA = playerA;
+		a.setName(playerA);
 		return val;
 	}
 	public String getPlayerB() {
@@ -33,6 +70,7 @@ public class Match implements Serializable {
 		boolean val = checkPlayerName(playerB);
 		if (val)
 			this.playerB = playerB;
+		b.setName(playerB);
 		return val;
 	}
 	public String getPlayerX() {
@@ -42,6 +80,7 @@ public class Match implements Serializable {
 		boolean val = checkPlayerName(playerX);
 		if (val)
 			this.playerX = playerX;
+		x.setName(playerX);
 		return val;
 	}
 	public String getPlayerY() {
@@ -51,6 +90,7 @@ public class Match implements Serializable {
 		boolean val = checkPlayerName(playerY);
 		if (val)
 			this.playerY = playerY;
+		y.setName(playerY);
 		return val;
 	}
 

@@ -16,5 +16,9 @@
     <string name="start_text">Start</string>
     <string name="stop_text">Stop</string>
     <string name="finish_text">Finish Set</string>
-	<string name="name_label_hint">Enter name here</string>
+    <string name="name_label_hint">Enter name here</string>
+    <string name="forced_error">Forced error</string>
+    <string name="unforced_error">Unforced Error</string>
+    <string name="winner">winner</string>
+
 </resources>

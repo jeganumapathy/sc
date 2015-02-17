@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.hardware.Camera;
 import android.media.CamcorderProfile;
+import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.view.SurfaceHolder;
@@ -19,8 +20,8 @@ public class CameraRecordActivity extends Activity{
     private Camera myCamera;
     private MyCameraSurfaceView myCameraSurfaceView;
     private MediaRecorder mediaRecorder;
-
-    Button myButton;
+    private MediaPlayer mPlayer;
+    Button myButton,forced_error,unforced_error,winner;
     SurfaceHolder surfaceHolder;
     boolean recording;
 
@@ -46,8 +47,29 @@ public class CameraRecordActivity extends Activity{
         myCameraPreview.addView(myCameraSurfaceView);
 
         myButton = (Button)findViewById(R.id.mybutton);
+        forced_error= (Button)findViewById(R.id.forced_error);
+        unforced_error= (Button)findViewById(R.id.unforced_error);
+        winner= (Button)findViewById(R.id.winner);
         myButton.setOnClickListener(myButtonOnClickListener);
     }
+    
+    View.OnClickListener mClickListener = new View.OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			switch (v.getId()) {
+			case R.id.forced_error:
+				break;
+			case R.id.unforced_error:
+				break;
+			case R.id.winner:
+				break;
+			default:
+				break;
+			}
+			
+		}
+	};
 
     Button.OnClickListener myButtonOnClickListener
             = new Button.OnClickListener(){
@@ -91,6 +113,8 @@ public class CameraRecordActivity extends Activity{
         }
         return c; // returns null if camera is unavailable
     }
+    
+
 
     private boolean prepareMediaRecorder(){
         myCamera = getCameraInstance();
@@ -104,8 +128,8 @@ public class CameraRecordActivity extends Activity{
 
         mediaRecorder.setProfile(CamcorderProfile.get(CamcorderProfile.QUALITY_720P));
         mediaRecorder.setOutputFile("/sdcard/myvideo.mp4");
-        mediaRecorder.setMaxDuration(60000); // Set max duration 60 sec.
-        mediaRecorder.setMaxFileSize(5000000); // Set max file size 5M
+        mediaRecorder.setMaxDuration(60000 * 60 * 2); // Set max duration 60 sec.
+        mediaRecorder.setMaxFileSize(5000000 * 10); // Set max file size 5M
 
         mediaRecorder.setPreviewDisplay(myCameraSurfaceView.getHolder().getSurface());
 
