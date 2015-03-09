@@ -310,7 +310,7 @@
                 android:id="@+id/three_set"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/player_x_layout"
+                android:layout_below="@id/optional_x_layout"
                 android:text="@string/three_set"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/default_text_lable_size" />

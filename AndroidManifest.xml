@@ -34,6 +34,12 @@
             android:screenOrientation="landscape" >
         </activity>
         <activity
+            android:name=".TtMediaPlayer"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape" >
+        </activity>
+        
+        <activity
             android:name=".MainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/app_name" >

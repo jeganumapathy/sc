@@ -70,6 +70,7 @@ public class Timer {
 		}
 	};
 	
+	
 	public int getSec(){
 		return secs;
 	}

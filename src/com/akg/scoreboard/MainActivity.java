@@ -38,6 +38,9 @@ public class MainActivity extends Activity implements Constants {
 			} else if (v.getId() == R.id.doubles) {
 				intent.putExtra(Constants.EXTRA, DOUBLES);
 				startActivity(intent);
+			}else if (v.getId() == R.id.record) {
+				intent = new Intent(MainActivity.this, CameraRecordActivity.class);
+				startActivity(intent);
 			}
 		}
 	};
