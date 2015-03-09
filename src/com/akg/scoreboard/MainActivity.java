@@ -12,7 +12,7 @@ import android.widget.Button;
 
 public class MainActivity extends Activity implements Constants {
 
-	private Button singles, doubles;
+	private Button singles, doubles,record;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +22,10 @@ public class MainActivity extends Activity implements Constants {
 		setContentView(R.layout.activity_main);
 		singles = (Button) findViewById(R.id.singles);
 		doubles = (Button) findViewById(R.id.doubles);
+		record = (Button) findViewById(R.id.record);
 		singles.setOnClickListener(clickListener);
 		doubles.setOnClickListener(clickListener);
+		record.setOnClickListener(clickListener);
 	}
 
 	private View.OnClickListener clickListener = new View.OnClickListener() {

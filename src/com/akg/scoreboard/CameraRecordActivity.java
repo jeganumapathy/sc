@@ -1,5 +1,7 @@
 package com.akg.scoreboard;
 
+import java.io.IOException;
+
 import android.app.Activity;
 import android.content.Context;
 import android.hardware.Camera;
@@ -7,14 +9,13 @@ import android.media.CamcorderProfile;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.Toast;
-
-import java.io.IOException;
 
 public class CameraRecordActivity extends Activity{
     private Camera myCamera;
@@ -24,6 +25,7 @@ public class CameraRecordActivity extends Activity{
     Button myButton,forced_error,unforced_error,winner;
     SurfaceHolder surfaceHolder;
     boolean recording;
+    int totalIntrevals= 1000 * 60  * 60 * 3;
 
     /** Called when the activity is first created. */
     @Override
@@ -41,16 +43,16 @@ public class CameraRecordActivity extends Activity{
                     "Fail to get Camera",
                     Toast.LENGTH_LONG).show();
         }
-
         myCameraSurfaceView = new MyCameraSurfaceView(getApplicationContext(), myCamera);
         FrameLayout myCameraPreview = (FrameLayout)findViewById(R.id.videoview);
         myCameraPreview.addView(myCameraSurfaceView);
-
         myButton = (Button)findViewById(R.id.mybutton);
         forced_error= (Button)findViewById(R.id.forced_error);
         unforced_error= (Button)findViewById(R.id.unforced_error);
         winner= (Button)findViewById(R.id.winner);
         myButton.setOnClickListener(myButtonOnClickListener);
+       
+
     }
     
     View.OnClickListener mClickListener = new View.OnClickListener() {
@@ -119,20 +121,15 @@ public class CameraRecordActivity extends Activity{
     private boolean prepareMediaRecorder(){
         myCamera = getCameraInstance();
         mediaRecorder = new MediaRecorder();
-
         myCamera.unlock();
         mediaRecorder.setCamera(myCamera);
-
         mediaRecorder.setAudioSource(MediaRecorder.AudioSource.CAMCORDER);
         mediaRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
-
         mediaRecorder.setProfile(CamcorderProfile.get(CamcorderProfile.QUALITY_720P));
         mediaRecorder.setOutputFile("/sdcard/myvideo.mp4");
         mediaRecorder.setMaxDuration(60000 * 60 * 2); // Set max duration 60 sec.
         mediaRecorder.setMaxFileSize(5000000 * 10); // Set max file size 5M
-
         mediaRecorder.setPreviewDisplay(myCameraSurfaceView.getHolder().getSurface());
-
         try {
             mediaRecorder.prepare();
         } catch (IllegalStateException e) {

@@ -102,7 +102,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Right"  android:onClick="onRadioButtonClicked"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="Right"
                         android:textColor="@color/dark_orange" />
 
                     <RadioButton
@@ -110,7 +111,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Left "  android:onClick="onRadioButtonClicked"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="Left "
                         android:textColor="@color/dark_orange" />
                 </RadioGroup>
 
@@ -127,7 +129,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:onClick="onRadioButtonClicked"
-                        android:text="Offensive "  android:onClick="onRadioButtonClicked"
+                        android:text="Offensive "
                         android:textColor="@color/dark_orange" />
 
                     <RadioButton
@@ -136,7 +138,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.73"
                         android:onClick="onRadioButtonClicked"
-                        android:text="Defensive "  android:onClick="onRadioButtonClicked"
+                        android:text="Defensive "
                         android:textColor="@color/dark_orange" />
                 </RadioGroup>
 
@@ -153,7 +155,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:onClick="onRadioButtonClicked"
-                        android:text="shake hand"  android:onClick="onRadioButtonClicked"
+                        android:text="shake hand"
                         android:textColor="@color/dark_orange" />
 
                     <RadioButton
@@ -162,7 +164,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.37"
                         android:onClick="onRadioButtonClicked"
-                        android:text="pen hold"  android:onClick="onRadioButtonClicked"
+                        android:text="pen hold"
                         android:textColor="@color/dark_orange" />
                 </RadioGroup>
             </RelativeLayout>
@@ -229,7 +231,7 @@
                 <RadioGroup
                     android:id="@+id/x_handeness"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content" 
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal" >
 
                     <RadioButton
@@ -237,7 +239,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Right"  android:onClick="onRadioButtonClicked"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="Right"
                         android:textColor="@color/dark_orange" />
 
                     <RadioButton
@@ -245,7 +248,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Left "  android:onClick="onRadioButtonClicked"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="Left "
                         android:textColor="@color/dark_orange" />
                 </RadioGroup>
 
@@ -260,7 +264,7 @@
                         android:id="@+id/radio_offense_x"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"  android:onClick="onRadioButtonClicked"
+                        android:layout_weight="1"
                         android:onClick="onRadioButtonClicked"
                         android:text="Offensive "
                         android:textColor="@color/dark_orange" />
@@ -271,7 +275,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.73"
                         android:onClick="onRadioButtonClicked"
-                        android:text="Defensive "  android:onClick="onRadioButtonClicked"
+                        android:text="Defensive "
                         android:textColor="@color/dark_orange" />
                 </RadioGroup>
 
