@@ -61,6 +61,7 @@ public class CameraRecordActivity extends Activity {
 		unforced_error.setOnClickListener(mClickListener);
 		winner.setOnClickListener(mClickListener); 
 		view_feedback.setOnClickListener(mClickListener);
+		view_feedback.setVisibility(View.GONE);
 		timer.setTimerCallBack(new TimerCallBack() {
 			@Override
 			public void setTime(String output) {
@@ -109,6 +110,7 @@ public class CameraRecordActivity extends Activity {
 				mediaRecorder.stop(); // stop the recording
 				releaseMediaRecorder(); // release the MediaRecorder object
 				recording = false;
+				view_feedback.setVisibility(View.VISIBLE);
 				myButton.setText("Start");
 
 			} else {
@@ -252,6 +254,7 @@ public class CameraRecordActivity extends Activity {
 				mCamera.setPreviewDisplay(holder);
 				mCamera.startPreview();
 			} catch (IOException e) {
+			} catch (Exception e) {
 			}
 		}
 
