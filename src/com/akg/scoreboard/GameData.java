@@ -1,15 +1,16 @@
 package com.akg.scoreboard;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class GameData {
-	public ArrayList<Long> forced_error;
-	public ArrayList<Long> unforced_error;
-	public ArrayList<Long> winner;
+public class GameData implements Serializable {
+	public ArrayList<Object> forced_error;
+	public ArrayList<Object> unforced_error;
+	public ArrayList<Object> winner;
 
 	public GameData() {
-		forced_error = new ArrayList<Long>();
-		unforced_error = new ArrayList<Long>();
-		winner = new ArrayList<Long>();
+		forced_error = new ArrayList<Object>();
+		unforced_error = new ArrayList<Object>();
+		winner = new ArrayList<Object>();
 	}
 }

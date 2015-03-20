@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.hardware.Camera;
 import android.media.CamcorderProfile;
 import android.media.MediaPlayer;
@@ -61,7 +62,7 @@ public class CameraRecordActivity extends Activity {
 		unforced_error.setOnClickListener(mClickListener);
 		winner.setOnClickListener(mClickListener); 
 		view_feedback.setOnClickListener(mClickListener);
-		view_feedback.setVisibility(View.GONE);
+		view_feedback.setVisibility(View.VISIBLE);
 		timer.setTimerCallBack(new TimerCallBack() {
 			@Override
 			public void setTime(String output) {
@@ -80,18 +81,18 @@ public class CameraRecordActivity extends Activity {
 
 			case R.id.forced_error:
 				data.forced_error.add(l);
-				Toast.makeText(getApplicationContext(), "Error noted down : "+l, Toast.LENGTH_SHORT).show();
 				break;
 			case R.id.unforced_error:
 				data.unforced_error.add(l);
-				Toast.makeText(getApplicationContext(), "unforced error noted down : "+l, Toast.LENGTH_SHORT).show();
 				break;
 			case R.id.winner:
 				data.winner.add(l);
-				Toast.makeText(getApplicationContext(), "win noted down : "+l, Toast.LENGTH_SHORT).show();
 				break;
 			case R.id.view_feedback:
-				Toast.makeText(getApplicationContext(), "Work in progress", Toast.LENGTH_LONG).show();
+				if(recording)stopRecording();
+				Intent feedBackIntent = new Intent(CameraRecordActivity.this,FeedBackActivity.class);
+				feedBackIntent.putExtra("EXTRA", data);
+				startActivity(feedBackIntent);
 				break;
 			default:
 				break;
@@ -106,30 +107,39 @@ public class CameraRecordActivity extends Activity {
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
 			if (recording) {
-				// stop recording and release camera
-				mediaRecorder.stop(); // stop the recording
-				releaseMediaRecorder(); // release the MediaRecorder object
-				recording = false;
-				view_feedback.setVisibility(View.VISIBLE);
-				myButton.setText("Start");
-
+				stopRecording();
 			} else {
-				// Release Camera before MediaRecorder start
-				releaseCamera();
-				if (!prepareMediaRecorder()) {
-					Toast.makeText(CameraRecordActivity.this,
-							"Fail in prepareMediaRecorder()!\n - Ended -",
-							Toast.LENGTH_LONG).show();
-					finish();
-				}
-				if (mediaRecorder != null)
-					mediaRecorder.start();
-				recording = true;
-				timer.start();
-				myButton.setText("Stop");
+				startRecording();
 			}
 		}
 	};
+	
+	private void stopRecording(){
+		// stop recording and release camera
+		mediaRecorder.stop(); // stop the recording
+		releaseMediaRecorder(); // release the MediaRecorder object
+		recording = false;
+		view_feedback.setVisibility(View.VISIBLE);
+		myButton.setText("Start");
+
+	}
+	
+	private void startRecording(){
+		// Release Camera before MediaRecorder start
+		releaseCamera();
+		if (!prepareMediaRecorder()) {
+			Toast.makeText(CameraRecordActivity.this,
+					"Fail in prepareMediaRecorder()!\n - Ended -",
+					Toast.LENGTH_LONG).show();
+			finish();
+		}
+		if (mediaRecorder != null)
+			mediaRecorder.start();
+		recording = true;
+		timer.start();
+		myButton.setText("Stop");
+
+	}
 
 	private Camera getCameraInstance() {
 		// TODO Auto-generated method stub
